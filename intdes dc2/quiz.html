@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=960, initial-scale=1.0" />
+  <title>Cybersecurity Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Titillium+Web:wght@200;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+  <div class="background"></div>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Quiz Container -->
+  <div class="quiz-container" id="quiz-box">
+    <h2 id="question">Question</h2>
+    <div id="answer-buttons" class="btn-grid"></div>
+    <p id="explanation"></p>
+    <button id="next-btn" class="titillium hidden">Next</button>
+  </div>
+
+  <!-- Result Screen -->
+  <div class="result-screen hidden" id="result-screen">
+    <h1 id="result-text" class="sixtyfour glitch-text"></h1>
+    <p id="score-summary"></p>
+    <p id="caption" class="hidden">Try harder next time...</p>
+    <button id="retry-btn">Retry Quiz</button>
+  </div>
+
+  <!-- Sound Effects -->
+  <audio id="ding" src="ding.mp3" preload="auto"></audio>
+  <audio id="error" src="error.mp3" preload="auto"></audio>
+  <audio id="win" src="win.mp3" preload="auto"></audio>
+  <audio id="lose" src="lose.mp3" preload="auto"></audio>
+
+  <script src="quiz.js"></script>
+</body>
+</html>

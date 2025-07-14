@@ -1,0 +1,66 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  font-family: 'Titillium Web', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#background-glitch {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("background-2.png") no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.3;
+  animation: glitchy-bg 5s infinite;
+}
+
+@keyframes glitchy-bg {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(30deg); }
+}
+
+.win-container {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  color: white;
+}
+
+.sixtyfour {
+  font-family: 'Sixtyfour', monospace;
+  font-size: 4.5rem;
+  color: red;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin: 20px auto 40px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  background-color: #bc2525;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e84141;
+}

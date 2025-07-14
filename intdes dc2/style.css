@@ -1,0 +1,156 @@
+:root {
+  --red-primary: hsl(0, 100%, 55%);
+  --red-dark: hsl(0, 66%, 45%);
+  --white: #fff;
+  --black: #000;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Titillium Web", sans-serif;
+  background: url("background.png") no-repeat center center;
+  background-size: cover;
+  color: var(--white);
+  transition: opacity 0.5s ease-out;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+#background-glitch {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0.01) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  animation: backgroundFlicker 0.3s infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes backgroundFlicker {
+  0%, 100% { opacity: 0.02; transform: translateY(0); }
+  50% { opacity: 0.04; transform: translateY(-1px); }
+}
+
+#titleScreen {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.sixtyfour {
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-weight: 400;
+}
+
+.titillium {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+}
+
+.glitch {
+  position: relative;
+  color: var(--red-primary);
+  font-size: 68px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  animation: brightGlow 1s infinite alternate;
+}
+
+@keyframes brightGlow {
+  from {
+    text-shadow:
+      0 0 10px var(--white),
+      0 0 20px var(--red-primary),
+      0 0 30px var(--red-dark);
+  }
+  to {
+    text-shadow:
+      0 0 15px var(--white),
+      0 0 30px var(--red-primary),
+      0 0 45px var(--red-dark);
+  }
+}
+
+.subtitle {
+  margin: 100px 0 -20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#startBtn {
+  margin: 80px 0 20px;
+  padding: 25px 60px;
+  background-color: #bc2525;
+  color: var(--white);
+  font-size: 30px;
+  font-weight: bold;
+  min-width: 220px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow:
+    0 0 10px rgba(255, 59, 59, 0.8),
+    0 0 20px rgba(255, 0, 0, 0.6);
+  animation: buttonGlow 2s infinite alternate;
+}
+
+@keyframes buttonGlow {
+  from {
+    box-shadow:
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  to {
+    box-shadow:
+      0 0 20px rgb(255, 255, 255),
+      0 0 40px rgba(255, 255, 255, 0.8);
+  }
+}
+
+#startBtn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow:
+    0 0 25px rgba(255, 59, 59, 1),
+    0 0 50px rgba(255, 0, 0, 0.9),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+#muteBtn {
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  font-size: 40px;
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+#muteBtn:hover {
+  transform: scale(1.1);
+}

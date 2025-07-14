@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You Win | Trust or Trap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Titillium+Web:wght@200;400&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      font-family: 'Titillium Web', sans-serif;
+      background: black url("background-2.png") no-repeat center center;
+      background-size: cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    h1.sixtyfour-convergence {
+      font-family: 'Sixtyfour Convergence', sans-serif;
+      font-size: 64px;
+      color: #e41b1b;
+      text-shadow: 0 0 3px red, 0 0 5px black;
+      animation: flicker 1s infinite alternate;
+      margin-bottom: 24px;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.85; }
+    }
+
+    .subtitle {
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .subtext {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 36px;
+    }
+
+    #quizBtn {
+      background: #bc2525;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: 'Titillium Web', sans-serif;
+      transition: background 0.3s ease;
+    }
+
+    #quizBtn:hover {
+      background: #d43f3f;
+    }
+
+    @media (max-width: 600px) {
+      h1.sixtyfour-convergence {
+        font-size: 48px;
+      }
+
+      .subtitle, .subtext {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="sixtyfour-convergence">YOU WIN</h1>
+    <p class="subtitle">CONGRATS! You made the right choices to protect yourself online.</p>
+    <p class="subtext">
+      Ready for the next challenge? Take the quiz below to see how sharp your online safety skills really are.
+    </p>
+    <button id="quizBtn" onclick="window.location.href='quiz.html'">TAKE THE QUIZ</button>
+  </div>
+</body>
+</html>

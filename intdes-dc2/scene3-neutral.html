@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scene 3 Neutral | Trust or Trap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="scene3-neutral.css" />
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="ui-container">
+    <img src="messaging-ui.png" alt="Chat UI" class="chat-ui" />
+
+    <!-- Messages -->
+    <div class="message-container message-received" style="top: 150px;">
+      <img src="unk-profile.png" class="profile-photo" alt="Profile"/>
+      <div class="message-bubble">heh...thanks for replying...no one ever replies me on here...</div>
+    </div>
+
+    <div class="message-container message-received" style="top: 230px;">
+      <img src="unk-profile.png" class="profile-photo" alt="Profile"/>
+      <div class="message-bubble">im curious..can i see what u look like?</div>
+    </div>
+
+    <!-- Reply Section -->
+    <div id="replySection" class="reply-container">
+      <p class="choose-reply-text">Choose a reply:</p>
+      <button class="choice" onclick="location.href='you-lose-pic.html'">oh haha suree</button>
+      <button class="choice" data-path="nopic">er no that's weird i don't even know u</button>
+    </div>
+
+    <!-- Feedback Overlay -->
+    <div id="feedback" class="feedback-overlay">
+      <p id="feedbackBubble" class="feedback-message"></p>
+      <button id="nextBtn" class="feedback-next-btn">Next</button>
+    </div>
+  </div>
+
+  <!-- Notification Sound -->
+  <audio id="notifSound" src="notification.mp3" preload="auto"></audio>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>

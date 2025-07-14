@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=960, initial-scale=1.0" />
+  <title>Chat Simulation | Scene 4 - Risky Path</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="scene4-risky.css" />
+</head>
+<body>
+  <!-- Background -->
+  <div class="background"></div>
+
+  <!-- UI Container -->
+  <div class="ui-container">
+    <img src="messaging-ui.png" alt="Chat Interface Background" class="chat-ui" role="presentation" />
+
+    <!-- Message 1 -->
+    <div class="message-container message-received" style="top: 160px;">
+      <img src="unk-profile.png" class="profile-photo" alt="Profile Picture" />
+      <div class="message-bubble">knew you'd reply ;) you're really cute lol</div>
+    </div>
+
+    <!-- Message 2 -->
+    <div class="message-container message-received" style="top: 240px;">
+      <img src="unk-profile.png" class="profile-photo" alt="Profile Picture" />
+      <div class="message-bubble">wanna swap phone numbers? i'm more active on iMessage</div>
+    </div>
+
+    <!-- Reply Section -->
+    <div id="replySection" class="reply-container">
+      <p class="choose-reply-text">Choose a reply:</p>
+      <button class="choice" data-path="picsent">sureee haha </button>
+      <button class="choice" data-path="nopic2">er no that's weird i don't even know u...</button>
+    </div>
+
+    <!-- Feedback Overlay -->
+    <div id="feedback" class="feedback-overlay">
+      <p id="feedbackBubble" class="feedback-message"></p>
+      <button id="nextBtn" class="feedback-next-btn">Next</button>
+    </div>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="notifSound" src="notification.mp3" preload="auto"></audio>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

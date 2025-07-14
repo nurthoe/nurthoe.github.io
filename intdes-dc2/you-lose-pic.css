@@ -1,0 +1,106 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  font-family: 'Titillium Web', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: glitchFadeIn 1.5s steps(1) forwards;
+}
+
+@keyframes glitchFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+    filter: hue-rotate(0deg) contrast(1);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(20deg) contrast(2);
+  }
+  20% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(-20deg);
+  }
+  30% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  50% {
+    transform: translate(0, 0);
+    filter: contrast(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+#background-glitch {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("background-2.png") no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.3;
+  animation: glitchy-bg 5s infinite;
+}
+
+@keyframes glitchy-bg {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(30deg); }
+}
+
+.win-container {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  color: white;
+}
+
+.sixtyfour {
+  font-family: 'Sixtyfour Convergence', monospace;
+  font-size: 4.5rem;
+  color: red;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin: 20px auto 40px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  background-color: #bc2525;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e84141;
+}

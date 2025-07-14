@@ -1,0 +1,229 @@
+:root {
+  --black: rgba(0, 0, 0, 0.6);
+  --transition: 0.5s ease;
+  --ui-width: 960px;
+  --ui-height: 540px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Titillium Web", sans-serif;
+  background: black;
+  opacity: 0;
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("background-2.png") no-repeat center center;
+  background-size: cover;
+  z-index: -2;
+}
+
+.ui-container {
+  position: absolute;
+  width: 960px;
+  height: 540px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chat-ui {
+  position: absolute;
+  width: 960px;
+  height: 540px;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Messages */
+.message-container {
+  position: absolute;
+  display: flex;
+  margin: -5px 0 8px -20px; 
+  align-items: flex-end;
+  gap: 12px;
+  max-width: 70%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 2;
+}
+
+.message-received {
+  left: 120px;
+  flex-direction: row;
+}
+
+.profile-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #333;
+  border: 2px solid #555;
+  object-fit: cover;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.message-bubble {
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: var(--black);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Reply Options */
+#replySection {
+  position: absolute;
+  bottom: 110px;
+  left: auto;            
+  right: 80px;            
+  width: 380px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 3;
+}
+
+
+#replySection.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.choose-reply-text {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.choice {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #111;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 8px;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.choice:hover {
+  background: #333;
+}
+
+/* Glitch flash */
+.glitch-flash {
+  animation: glitch 0.4s steps(2, start);
+}
+
+@keyframes glitch {
+  0%, 100% { background: #222; }
+  50% { background: #f00; color: #fff; }
+}
+
+/* Feedback screen */
+.feedback-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 960px;
+  height: 540px;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  line-height: 1.6;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: 100;
+}
+
+.feedback-screen.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#feedbackBubble {
+  max-width: 85%;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+#nextBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px 28px;
+  font-size: 18px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 101;
+}
+
+#nextBtn.show {
+  opacity: 1;
+}
+
+/* Responsive tweak */
+@media (max-width: 960px) {
+  .ui-container {
+    width: 100vw;
+    height: calc(100vw * 0.5625);
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  .message-bubble {
+    font-size: 14px;
+  }
+
+  .choose-reply-text {
+    font-size: 16px;
+  }
+}

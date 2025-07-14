@@ -70,10 +70,18 @@ function handlePageTransition() {
   }, 500);
 }
 
+// 🔊 Play notification sound
+function playNotifSound() {
+  const notifSound = document.getElementById("notifSound");
+  if (notifSound && audioEnabled) {
+    notifSound.currentTime = 0;
+    notifSound.play().catch(() => {});
+  }
+}
+
 // Animate incoming messages
 function animateMessages() {
   const containers = document.querySelectorAll(".message-container");
-  const notifSound = document.getElementById("notifSound");
   if (!containers.length) return;
 
   containers.forEach((container, index) => {
@@ -84,10 +92,7 @@ function animateMessages() {
       if (photo) photo.classList.add("animate-in");
       if (bubble) bubble.classList.add("animate-in");
 
-      if (notifSound) {
-        notifSound.currentTime = 0;
-        notifSound.play().catch(() => {});
-      }
+      playNotifSound();
     }, index * 1000);
   });
 
@@ -114,7 +119,6 @@ function showReplyOptions() {
 function handleReply(choice) {
   const path = choice.dataset.path;
 
-  // IMMEDIATE REDIRECTS
   if (path === "verysupersafe" || path === "supersafe") {
     window.location.href = "you-win.html";
     return;
@@ -135,7 +139,6 @@ function handleReply(choice) {
   const replySection = document.getElementById("replySection");
   if (replySection) replySection.classList.remove("show");
 
-  // Feedback messages
   if (path === "safe") {
     bubble.textContent = "✅ Well done! Ignoring uncomfortable chats helps keep you safe.";
   } else if (path === "risky") {
